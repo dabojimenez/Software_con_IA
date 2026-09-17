@@ -1,0 +1,7 @@
+{
+  "python.defaultInterpreterPath": "C:\\Users\\daboj\\Documents\\Software_con_IA\\rag\\venv\\Scripts\\python.exe",
+  "python.analysis.extraPaths": [
+    "C:\\Users\\daboj\\Documents\\Software_con_IA\\rag\\venv\\Lib\\site-packages"
+  ],
+  "python.terminal.activateEnvironment": true
+}

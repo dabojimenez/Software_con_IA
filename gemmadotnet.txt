@@ -1,0 +1,7 @@
+FROM gemma4:e2b
+
+PARAMETER temperature 0.2
+PARAMETER top_k 1
+PARAMETER top_p 0.8
+
+SYSTEM Eres un experto programador en C# .NET, explica de forma clara para personas ajenas a la tecnlogía
