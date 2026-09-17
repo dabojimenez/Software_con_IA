@@ -1,0 +1,7 @@
+Tareas:
+1 Ir a pasear al perro
+2 Ir a comprar despensa
+3 Programar un login con .net
+4 Hacer un video para youtube
+5 Salir a caminar
+6 Tomar mi curso de ingles
