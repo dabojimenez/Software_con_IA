@@ -13,6 +13,9 @@ from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
 
 # ============================================================================
 # PARTE 1 - INGESTA DE DATOS (construcción de la base de conocimiento)
@@ -22,7 +25,7 @@ from langchain_core.runnables import RunnablePassthrough
 # TextLoader convierte el archivo .txt en objetos Document (con page_content y metadata).
 # Nota: langchain-community está en "sunset"; para texto plano podrías usar
 # Path("document.txt").read_text() y evitar la dependencia.
-loader = TextLoader("asimov.txt", encoding="utf-8")
+loader = TextLoader(BASE_DIR / "asimov.txt", encoding="utf-8")
 docs = loader.load()  # docs = lista de Document (uno por línea/párrafo)
 
 # 2.- Dividir en chunks
