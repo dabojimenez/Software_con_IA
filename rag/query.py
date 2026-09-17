@@ -47,7 +47,7 @@ def format_docs(chunks):
 # 5. StrOutputParser(): extrae solo el texto final (str) de la respuesta del modelo.
 qa = (
     {
-        "context": vectorstore.as_retriever(search_kwargs={"k": 6}) | format_docs,
+        "context": vectorstore.as_retriever(search_kwargs={"k": 3}) | format_docs,
         "question": RunnablePassthrough(),  # pasa la pregunta tal cual al prompt
     }
     | prompt
