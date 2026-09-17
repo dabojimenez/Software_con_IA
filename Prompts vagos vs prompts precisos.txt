@@ -1,0 +1,52 @@
+En esta clase veremos como las especificaciones a la hora de escribir un prompt, pueden traer mejores resultados.
+
+Prompt vago utilizado:
+
+Crea un carrito de compras con HTML, CSS y JavaScript. Debe agregar productos, calcular total, eliminar productos y guardar el carrito.
+Prompt preciso utilizado:
+
+Crea una aplicación de carrito de compras usando únicamente HTML, CSS y JavaScript vanilla.
+Requisitos técnicos:
+* Separar el código en:
+  * index.html
+  * styles.css
+  * app.js
+Arquitectura:
+* Mantener el estado del carrito en un arreglo de objetos
+* No mezclar lógica de renderizado con lógica de negocio
+* Crear funciones separadas para:
+  * renderizar productos
+  * agregar al carrito
+  * eliminar productos
+  * calcular total
+  * guardar en localStorage
+  * cargar carrito desde localStorage
+Interfaz:
+* Mostrar una lista de productos en tarjetas
+* Cada producto debe tener:
+  * nombre
+  * precio
+  * imagen
+  * botón de agregar
+Carrito:
+* Mostrar cantidad de productos
+* Permitir aumentar y disminuir cantidades
+* Eliminar productos individualmente
+* Mostrar subtotal y total
+* Utiliza unidad moneda $
+Validaciones:
+* Evitar cantidades negativas
+* Manejar errores de localStorage
+* Validar productos duplicados correctamente
+Código:
+* Usar addEventListener
+* Evitar onclick inline
+* Evitar innerHTML innecesario
+* Agregar comentarios explicando las partes importantes
+CSS:
+* Diseño responsive
+* Usar variables CSS
+* Mantener clases reutilizables
+* Agregar efectos hover suaves
+Además:
+* Explica las decisiones importantes tomadas en el código.

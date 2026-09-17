@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4efe8">
+    <title>Casa Clara | Carrito</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Casa Clara, inicio">CASA <span>CLARA</span></a>
+        <p class="header-note">Objetos cotidianos, bien elegidos</p>
+        <button class="cart-link" id="cart-link" type="button" aria-label="Ir al carrito">
+            Carrito <span class="count-badge" id="header-count">0</span>
+        </button>
+    </header>
+
+    <main class="page-shell">
+        <section class="intro" aria-labelledby="page-title">
+            <p class="eyebrow">COLECCION DE OTOÑO</p>
+            <h1 id="page-title">Pequeñas cosas,<br><em>gran calma.</em></h1>
+            <p class="intro-copy">Una selección de piezas útiles para hacer más amable lo cotidiano.</p>
+        </section>
+
+        <div class="shop-layout">
+            <section aria-labelledby="products-title">
+                <div class="section-heading">
+                    <h2 id="products-title">Productos</h2>
+                    <span>Envío disponible a todo el país</span>
+                </div>
+                <div class="product-grid" id="product-list"></div>
+            </section>
+
+            <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-title">
+                <div class="cart-heading">
+                    <div>
+                        <p class="eyebrow">TU SELECCION</p>
+                        <h2 id="cart-title">Carrito</h2>
+                    </div>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </div>
+
+                <div class="cart-items" id="cart-items" aria-live="polite"></div>
+
+                <div class="cart-summary">
+                    <div class="summary-line"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
+                    <div class="summary-line"><span>Envío</span><span class="shipping-label">Gratis</span></div>
+                    <div class="summary-line summary-total"><span>Total</span><strong id="cart-total">$0.00</strong></div>
+                    <button class="checkout-button" id="checkout-button" type="button" disabled>Finalizar compra</button>
+                    <button class="clear-button" id="clear-cart" type="button" disabled>Vaciar carrito</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">Casa Clara <span>·</span> Hecho para el día a día</footer>
+</body>
+</html>

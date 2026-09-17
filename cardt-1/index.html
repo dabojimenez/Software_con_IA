@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f3ee">
+    <title>Mercado Norte | Carrito</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Mercado Norte, inicio">MERCADO <span>NORTE</span></a>
+        <div class="header-note">Compra simple, productos escogidos</div>
+        <button class="cart-jump" id="cart-jump" type="button" aria-label="Ver carrito">
+            Carrito <span id="cart-count">0</span>
+        </button>
+    </header>
+
+    <main class="page-shell">
+        <section class="intro" aria-labelledby="page-title">
+            <p class="eyebrow">SELECCION DE LA SEMANA</p>
+            <h1 id="page-title">Lo bueno<br><em>cabe aquí.</em></h1>
+            <p class="intro-copy">Una pequeña selección de alimentos para llenar tu despensa con intención.</p>
+        </section>
+
+        <div class="shop-layout">
+            <section class="products-panel" aria-labelledby="products-title">
+                <div class="section-heading">
+                    <h2 id="products-title">Productos</h2>
+                    <span>Precios en EUR</span>
+                </div>
+                <div class="product-grid" id="product-grid"></div>
+            </section>
+
+            <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-title">
+                <div class="cart-heading">
+                    <div>
+                        <p class="eyebrow">TU SELECCION</p>
+                        <h2 id="cart-title">Carrito</h2>
+                    </div>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </div>
+                <div class="cart-items" id="cart-items" aria-live="polite"></div>
+                <div class="cart-summary">
+                    <div><span>Subtotal</span><strong id="cart-total">0,00 EUR</strong></div>
+                    <p>Envío calculado al finalizar la compra.</p>
+                    <button class="checkout-button" id="checkout-button" type="button" disabled>Continuar con el pedido</button>
+                    <button class="clear-button" id="clear-cart" type="button" disabled>Vaciar carrito</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">Mercado Norte <span>·</span> Productos de cada día</footer>
+    <script src="script.js"></script>
+</body>
+</html>
