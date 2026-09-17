@@ -12,7 +12,7 @@ from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_chroma import Chroma
 from pathlib import Path
 
-CHROMA_DIR = "./choma_db"
+CHROMA_DIR = "./chroma_db"
 
 BASE_DIR = Path(__file__).resolve().parent
 
