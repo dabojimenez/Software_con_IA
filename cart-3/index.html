@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f0e8">
+  <title>Casa Nómada | Carrito</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --paper: #f5f0e8;
+      --paper-deep: #e9e0d4;
+      --ink: #20231f;
+      --muted: #77766d;
+      --line: rgba(32, 35, 31, .14);
+      --accent: #ed7455;
+      --accent-dark: #b94f36;
+      --mint: #bfd9c8;
+      --white: #fffdf9;
+      --shadow: 0 18px 45px rgba(71, 53, 38, .13);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: 'Manrope', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    button { font: inherit; }
+    .shell { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      color: var(--paper);
+      background: var(--ink);
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .brand-name { font-size: 15px; font-weight: 800; letter-spacing: -.04em; }
+    .brand-note { margin-left: 8px; color: var(--muted); font-size: 10px; letter-spacing: .11em; text-transform: uppercase; }
+    .cart-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 15px;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+      transition: background 180ms ease, transform 120ms ease;
+    }
+    .cart-button:hover { background: var(--white); }
+    .cart-button:active { transform: scale(.97); }
+    .cart-count { display: grid; place-items: center; min-width: 21px; height: 21px; padding: 0 5px; background: var(--accent); border-radius: 50%; font-size: 11px; font-weight: 800; }
+
+    .intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 360px); gap: 40px; align-items: end; padding: 78px 0 58px; }
+    .eyebrow { margin: 0 0 17px; color: var(--accent-dark); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { max-width: 680px; margin: 0; font-size: clamp(42px, 7vw, 82px); line-height: .95; letter-spacing: -.075em; text-wrap: balance; }
+    .intro-copy { max-width: 310px; margin: 0 0 3px; color: var(--muted); font-size: 14px; line-height: 1.7; text-wrap: pretty; }
+
+    .shop-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 56px; align-items: start; padding-bottom: 72px; }
+    .section-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+    .section-label h2 { margin: 0; font-size: 13px; font-weight: 800; letter-spacing: -.02em; }
+    .section-label span { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; }
+    .product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .pagination { display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 24px; }
+    .page-button { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; color: var(--ink); border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; font-size: 18px; transition: color 160ms ease, background 160ms ease, transform 120ms ease; }
+    .page-button:hover:not(:disabled) { color: var(--white); background: var(--ink); }
+    .page-button:active:not(:disabled) { transform: scale(.96); }
+    .page-button:disabled { cursor: not-allowed; opacity: .3; }
+    .page-status { min-width: 92px; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; text-align: center; }
+    .product-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: 0 5px 16px rgba(71, 53, 38, .04); transition: transform 220ms cubic-bezier(.23,1,.32,1), box-shadow 220ms ease; }
+    .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .product-art { position: relative; display: grid; place-items: center; min-height: 218px; overflow: hidden; }
+    .product-art::after { content: ''; position: absolute; inset: 12px; border: 1px solid rgba(32,35,31,.11); border-radius: 50%; transform: rotate(-14deg) scaleX(1.28); }
+    .art-terracotta { background: #dfad8e; }
+    .art-sage { background: #bad0bf; }
+    .art-sun { background: #e8c477; }
+    .art-cloud { background: #c7d5d8; }
+    .object { position: relative; z-index: 1; display: grid; place-items: center; width: 110px; height: 110px; border-radius: 50%; color: rgba(32,35,31,.72); background: rgba(255,253,249,.8); box-shadow: 10px 12px 0 rgba(32,35,31,.1); font-size: 38px; }
+    .product-info { padding: 16px 17px 17px; }
+    .product-meta { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 7px; }
+    .product-name { margin: 0; font-size: 14px; font-weight: 800; letter-spacing: -.035em; }
+    .product-price { font-family: 'DM Mono', monospace; font-size: 12px; white-space: nowrap; }
+    .product-desc { min-height: 38px; margin: 0 0 15px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+    .add-button { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 40px; padding: 0 13px; color: var(--ink); border: 1px solid var(--line); border-radius: 10px; background: transparent; cursor: pointer; font-size: 12px; font-weight: 700; transition: color 160ms ease, background 160ms ease, border-color 160ms ease; }
+    .add-button:hover { color: var(--white); border-color: var(--ink); background: var(--ink); }
+    .add-button:active { transform: scale(.98); }
+    .add-button span { font-size: 18px; font-weight: 400; line-height: 1; }
+
+    .cart-panel { position: sticky; top: 24px; padding: 21px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--ink); color: var(--paper); box-shadow: var(--shadow); }
+    .cart-heading { display: flex; align-items: center; justify-content: space-between; padding-bottom: 19px; border-bottom: 1px solid rgba(245,240,232,.18); }
+    .cart-heading h2 { margin: 0; font-size: 19px; letter-spacing: -.05em; }
+    .cart-heading span { color: var(--mint); font-family: 'DM Mono', monospace; font-size: 10px; }
+    .cart-items { min-height: 144px; padding: 8px 0; }
+    .empty-cart { display: grid; place-items: center; min-height: 128px; color: rgba(245,240,232,.56); text-align: center; font-size: 12px; line-height: 1.6; }
+    .empty-cart strong { display: block; margin-bottom: 5px; color: var(--paper); font-size: 13px; }
+    .cart-item { display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; gap: 11px; align-items: center; padding: 13px 0; border-bottom: 1px solid rgba(245,240,232,.12); animation: rise 220ms ease-out both; }
+    .cart-thumb { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 9px; color: rgba(32,35,31,.7); font-size: 20px; }
+    .cart-item-name { margin: 0 0 3px; color: var(--paper); font-size: 11px; font-weight: 700; }
+    .cart-item-price { color: rgba(245,240,232,.52); font-family: 'DM Mono', monospace; font-size: 10px; }
+    .quantity { display: flex; align-items: center; gap: 7px; margin-top: 7px; }
+    .quantity button { display: grid; place-items: center; width: 23px; height: 23px; padding: 0; color: var(--paper); border: 1px solid rgba(245,240,232,.3); border-radius: 50%; background: transparent; cursor: pointer; line-height: 1; }
+    .quantity button:hover { background: rgba(245,240,232,.15); }
+    .quantity span { min-width: 10px; color: var(--paper); font-family: 'DM Mono', monospace; font-size: 10px; text-align: center; }
+    .cart-item-total { align-self: start; padding-top: 3px; font-family: 'DM Mono', monospace; font-size: 11px; }
+    .summary { padding-top: 17px; }
+    .summary-line { display: flex; justify-content: space-between; margin-bottom: 9px; color: rgba(245,240,232,.6); font-size: 11px; }
+    .summary-line strong { color: var(--paper); font-family: 'DM Mono', monospace; font-weight: 400; }
+    .summary-total { display: flex; align-items: baseline; justify-content: space-between; margin: 18px 0 18px; padding-top: 16px; border-top: 1px solid rgba(245,240,232,.18); }
+    .summary-total span { font-size: 13px; font-weight: 700; }
+    .summary-total strong { color: var(--mint); font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 500; }
+    .checkout-button { width: 100%; min-height: 48px; border: 0; border-radius: 10px; color: var(--ink); background: var(--mint); cursor: pointer; font-size: 12px; font-weight: 800; transition: background 180ms ease, transform 120ms ease; }
+    .checkout-button:hover { background: #d7ebdc; }
+    .checkout-button:active { transform: scale(.98); }
+    .checkout-button:disabled { cursor: not-allowed; opacity: .4; }
+    .shipping-note { margin: 13px 0 0; color: rgba(245,240,232,.42); font-family: 'DM Mono', monospace; font-size: 9px; text-align: center; }
+    footer { padding: 22px 0 30px; border-top: 1px solid var(--line); color: var(--muted); font-family: 'DM Mono', monospace; font-size: 10px; }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 820px) {
+      .intro { grid-template-columns: 1fr; gap: 23px; padding: 58px 0 42px; }
+      .intro-copy { max-width: 460px; }
+      .shop-layout { grid-template-columns: 1fr; gap: 38px; }
+      .cart-panel { position: static; }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 30px, 1180px); }
+      header { padding-top: 18px; }
+      .brand-note { display: none; }
+      h1 { font-size: 48px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .product-art { min-height: 190px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="brand" href="#productos" aria-label="Casa Nómada, inicio">
+        <span class="brand-mark">C</span>
+        <span class="brand-name">Casa Nómada</span>
+        <span class="brand-note">objetos con historia</span>
+      </a>
+      <button class="cart-button" id="cartButton" type="button" aria-label="Ver carrito">
+        <span>Mi carrito</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Colección / 04</p>
+          <h1>Pequeñas cosas,<br>bien elegidas.</h1>
+        </div>
+        <p class="intro-copy">Una selección de piezas para hacer que lo cotidiano se sienta un poco más especial. Diseñadas para durar, pensadas para regalar.</p>
+      </section>
+
+      <section class="shop-layout" id="productos" aria-label="Catálogo y carrito">
+        <div>
+          <div class="section-label">
+            <h2>Selección de temporada</h2>
+            <span id="productCount">04 piezas</span>
+          </div>
+          <div class="product-grid" id="productGrid"></div>
+          <nav class="pagination" aria-label="Paginación de productos">
+            <button class="page-button" id="previousPage" type="button" aria-label="Página anterior" disabled>←</button>
+            <span class="page-status" id="pageStatus">Página 1 de 3</span>
+            <button class="page-button" id="nextPage" type="button" aria-label="Página siguiente">→</button>
+          </nav>
+        </div>
+
+        <aside class="cart-panel" id="carrito" aria-labelledby="cart-title">
+          <div class="cart-heading">
+            <h2 id="cart-title">Tu selección</h2>
+            <span id="cartStatus">vacío</span>
+          </div>
+          <div class="cart-items" id="cartItems"></div>
+          <div class="summary">
+            <div class="summary-line"><span>Subtotal</span><strong id="subtotal">€0,00</strong></div>
+            <div class="summary-line"><span>Envío</span><strong id="shipping">Gratis</strong></div>
+            <div class="summary-total"><span>Total</span><strong id="total">€0,00</strong></div>
+            <button class="checkout-button" id="checkoutButton" type="button" disabled>Continuar al pago</button>
+            <p class="shipping-note">Envío gratuito a partir de 60 €</p>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>Casa Nómada · Hecho para quedarse</footer>
+  </div>
+
+  <script>
+    const products = [
+      { id: 1, name: 'Jarrón Alba', price: 28, description: 'Cerámica mate, hecha a mano en pequeñas series.', emoji: '◒', art: 'art-terracotta' },
+      { id: 2, name: 'Taza Bruma', price: 18, description: 'Gres esmaltado para mañanas sin prisa.', emoji: '◓', art: 'art-sage' },
+      { id: 3, name: 'Vela Senda', price: 22, description: 'Cera vegetal, higo verde y madera seca.', emoji: '✦', art: 'art-sun' },
+      { id: 4, name: 'Cuenco Lino', price: 24, description: 'Textura orgánica para la mesa diaria.', emoji: '◑', art: 'art-cloud' },
+      { id: 5, name: 'Lámpara Nube', price: 64, description: 'Luz cálida para rincones tranquilos.', emoji: '☼', art: 'art-sage' },
+      { id: 6, name: 'Jabón Olivo', price: 12, description: 'Aceite de oliva y romero de la sierra.', emoji: '✧', art: 'art-terracotta' },
+      { id: 7, name: 'Bandeja Sur', price: 32, description: 'Madera de haya con acabado natural.', emoji: '▱', art: 'art-cloud' },
+      { id: 8, name: 'Pañuelo Marea', price: 26, description: 'Algodón ligero con estampado artesanal.', emoji: '≈', art: 'art-sun' },
+      { id: 9, name: 'Cesta Palma', price: 36, description: 'Fibra trenzada para guardar lo esencial.', emoji: '⌂', art: 'art-terracotta' },
+      { id: 10, name: 'Vaso Rocío', price: 16, description: 'Vidrio reciclado, cada pieza es única.', emoji: '◌', art: 'art-sage' },
+      { id: 11, name: 'Cuaderno Sal', price: 14, description: 'Papel reciclado para ideas que empiezan.', emoji: '▤', art: 'art-cloud' },
+      { id: 12, name: 'Cuchara Olmo', price: 11, description: 'Madera suave, tallada a mano.', emoji: '⌁', art: 'art-sun' },
+      { id: 13, name: 'Bol Algodón', price: 21, description: 'Cerámica clara para desayunos lentos.', emoji: '◡', art: 'art-sage' },
+      { id: 14, name: 'Espejo Sol', price: 48, description: 'Marco redondo en latón envejecido.', emoji: '☉', art: 'art-sun' },
+      { id: 15, name: 'Aceite Laurel', price: 19, description: 'Aroma verde para pequeños rituales.', emoji: '❋', art: 'art-terracotta' },
+      { id: 16, name: 'Cojín Loma', price: 38, description: 'Lino lavado en tono piedra.', emoji: '▦', art: 'art-cloud' },
+      { id: 17, name: 'Maceta Tierra', price: 25, description: 'Barro poroso para plantas pequeñas.', emoji: '♧', art: 'art-terracotta' },
+      { id: 18, name: 'Copa Duna', price: 17, description: 'Cristal fino para brindar cualquier día.', emoji: '♢', art: 'art-sun' },
+      { id: 19, name: 'Piedra Aroma', price: 15, description: 'Difusor mineral con esencia de cedro.', emoji: '◆', art: 'art-sage' },
+      { id: 20, name: 'Manta Norte', price: 72, description: 'Algodón grueso para tardes de lectura.', emoji: '▧', art: 'art-cloud' },
+      { id: 21, name: 'Plato Alba', price: 20, description: 'Gres esmaltado para mesas con carácter.', emoji: '◍', art: 'art-sun' },
+      { id: 22, name: 'Florero Río', price: 31, description: 'Vidrio translúcido de silueta irregular.', emoji: '❈', art: 'art-sage' },
+      { id: 23, name: 'Pincel Fuego', price: 13, description: 'Fibra natural para cuidar tus objetos.', emoji: '⌇', art: 'art-terracotta' },
+      { id: 24, name: 'Caja Mimbre', price: 29, description: 'Almacenaje ligero con tapa tejida.', emoji: '▣', art: 'art-cloud' },
+      { id: 25, name: 'Sábana Brisa', price: 58, description: 'Lino fresco para dormir mejor.', emoji: '⌂', art: 'art-sage' },
+      { id: 26, name: 'Candelabro Aura', price: 44, description: 'Metal esmaltado para una luz íntima.', emoji: '✺', art: 'art-sun' },
+      { id: 27, name: 'Peine Raíz', price: 10, description: 'Madera de nogal, suave y duradera.', emoji: '≋', art: 'art-terracotta' },
+      { id: 28, name: 'Jarra Valle', price: 35, description: 'Cerámica robusta para agua fresca.', emoji: '◔', art: 'art-cloud' },
+      { id: 29, name: 'Bolsa Trigo', price: 27, description: 'Lona resistente para llevar a diario.', emoji: '⊙', art: 'art-sage' },
+      { id: 30, name: 'Marco Horizonte', price: 42, description: 'Madera oscura para tus imágenes favoritas.', emoji: '⊞', art: 'art-sun' }
+    ];
+    const productsPerPage = 10;
+    let currentPage = 1;
+    const totalPages = Math.ceil(products.length / productsPerPage);
+    const cart = {};
+    const euro = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+    const productGrid = document.querySelector('#productGrid');
+    const cartItems = document.querySelector('#cartItems');
+
+    function renderProducts() {
+      const start = (currentPage - 1) * productsPerPage;
+      const visibleProducts = products.slice(start, start + productsPerPage);
+      productGrid.innerHTML = visibleProducts.map(product => `
+        <article class="product-card">
+          <div class="product-art ${product.art}" aria-hidden="true"><div class="object">${product.emoji}</div></div>
+          <div class="product-info">
+            <div class="product-meta"><h3 class="product-name">${product.name}</h3><span class="product-price">${euro.format(product.price)}</span></div>
+            <p class="product-desc">${product.description}</p>
+            <button class="add-button" type="button" data-add="${product.id}">Añadir al carrito <span>+</span></button>
+          </div>
+        </article>`).join('');
+      document.querySelector('#pageStatus').textContent = `Página ${currentPage} de ${totalPages}`;
+      document.querySelector('#previousPage').disabled = currentPage === 1;
+      document.querySelector('#nextPage').disabled = currentPage === totalPages;
+      document.querySelector('#productCount').textContent = `${products.length.toString().padStart(2, '0')} piezas`;
+    }
+
+    function renderCart() {
+      const entries = Object.entries(cart).filter(([, quantity]) => quantity > 0);
+      const itemCount = entries.reduce((sum, [, quantity]) => sum + quantity, 0);
+      const subtotal = entries.reduce((sum, [id, quantity]) => sum + products.find(product => product.id === Number(id)).price * quantity, 0);
+      document.querySelector('#cartCount').textContent = itemCount;
+      document.querySelector('#cartStatus').textContent = itemCount ? `${itemCount} ${itemCount === 1 ? 'pieza' : 'piezas'}` : 'vacío';
+      document.querySelector('#subtotal').textContent = euro.format(subtotal);
+      document.querySelector('#total').textContent = euro.format(subtotal);
+      document.querySelector('#checkoutButton').disabled = itemCount === 0;
+
+      if (!entries.length) {
+        cartItems.innerHTML = '<div class="empty-cart"><div><strong>Tu carrito está esperando.</strong>Añade una pieza para empezar<br>tu selección.</div></div>';
+        return;
+      }
+      cartItems.innerHTML = entries.map(([id, quantity]) => {
+        const product = products.find(item => item.id === Number(id));
+        return `<div class="cart-item">
+          <div class="cart-thumb ${product.art}" aria-hidden="true">${product.emoji}</div>
+          <div><p class="cart-item-name">${product.name}</p><span class="cart-item-price">${euro.format(product.price)} / ud.</span>
+            <div class="quantity"><button type="button" data-action="decrease" data-id="${product.id}" aria-label="Quitar una unidad de ${product.name}">−</button><span>${quantity}</span><button type="button" data-action="increase" data-id="${product.id}" aria-label="Añadir una unidad de ${product.name}">+</button></div>
+          </div>
+          <span class="cart-item-total">${euro.format(product.price * quantity)}</span>
+        </div>`;
+      }).join('');
+    }
+
+    productGrid.addEventListener('click', event => {
+      const button = event.target.closest('[data-add]');
+      if (!button) return;
+      const id = button.dataset.add;
+      cart[id] = (cart[id] || 0) + 1;
+      renderCart();
+    });
+    cartItems.addEventListener('click', event => {
+      const button = event.target.closest('[data-action]');
+      if (!button) return;
+      const id = button.dataset.id;
+      cart[id] = (cart[id] || 0) + (button.dataset.action === 'increase' ? 1 : -1);
+      if (cart[id] <= 0) delete cart[id];
+      renderCart();
+    });
+    document.querySelector('#previousPage').addEventListener('click', () => {
+      if (currentPage === 1) return;
+      currentPage -= 1;
+      renderProducts();
+    });
+    document.querySelector('#nextPage').addEventListener('click', () => {
+      if (currentPage === totalPages) return;
+      currentPage += 1;
+      renderProducts();
+    });
+    document.querySelector('#cartButton').addEventListener('click', () => document.querySelector('#carrito').scrollIntoView({ behavior: 'smooth', block: 'center' }));
+    document.querySelector('#checkoutButton').addEventListener('click', () => alert('¡Gracias! El siguiente paso sería completar tus datos de envío.'));
+
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>
