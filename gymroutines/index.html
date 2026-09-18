@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101214">
+  <title>Mis rutinas | Gymroutines</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Mis rutinas">
+        <span class="brand-mark" aria-hidden="true">GYM</span>
+        <span>
+          <strong>Mis rutinas</strong>
+          <small>Entrena con intención</small>
+        </span>
+      </a>
+      <button class="button button-primary" id="open-modal" type="button">
+        <span class="button-icon" aria-hidden="true">+</span>
+        Nueva rutina
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Panel de entrenamiento</p>
+          <h1 id="page-title">Tu semana, <em>a tu ritmo.</em></h1>
+          <p class="hero-copy">Diseña sesiones claras, guarda tu progreso y llega al gimnasio con el plan listo.</p>
+        </div>
+        <div class="week-stat" aria-label="Resumen de rutinas">
+          <span class="stat-value" id="routine-count">0</span>
+          <span class="stat-label">rutinas guardadas</span>
+        </div>
+      </section>
+
+      <section class="routine-board" id="routine-board" aria-live="polite">
+        <div class="empty-state" id="empty-state">
+          <span class="empty-icon" aria-hidden="true">✦</span>
+          <h2>Aún no hay rutinas</h2>
+          <p>Empieza creando una sesión para organizar tu semana de entrenamiento.</p>
+          <button class="button button-secondary" id="empty-action" type="button">Crear mi primera rutina</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">GYMROUTINES <span>•</span> Tu fuerza, organizada.</footer>
+  </div>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Nueva sesión</p>
+          <h2 id="modal-title">Construye tu rutina</h2>
+        </div>
+        <button class="icon-button" id="close-modal" type="button" aria-label="Cerrar ventana">×</button>
+      </div>
+
+      <form id="routine-form">
+        <div class="form-grid form-grid-top">
+          <label class="field field-wide">
+            <span>Nombre de la rutina</span>
+            <input id="routine-name" name="routineName" type="text" placeholder="Ej. Empuje de potencia" required maxlength="60">
+          </label>
+          <label class="field">
+            <span>Día de entrenamiento</span>
+            <select id="routine-day" name="routineDay" required>
+              <option value="Lunes">Lunes</option>
+              <option value="Martes">Martes</option>
+              <option value="Miércoles">Miércoles</option>
+              <option value="Jueves">Jueves</option>
+              <option value="Viernes">Viernes</option>
+              <option value="Sábado">Sábado</option>
+              <option value="Domingo">Domingo</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="exercise-builder">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Contenido</p>
+              <h3>Añade ejercicios</h3>
+            </div>
+            <span class="exercise-count" id="exercise-count">0 ejercicios</span>
+          </div>
+          <div class="form-grid exercise-fields">
+            <label class="field field-wide">
+              <span>Ejercicio</span>
+              <input id="exercise-name" type="text" placeholder="Ej. Press de banca">
+            </label>
+            <label class="field">
+              <span>Series</span>
+              <input id="exercise-sets" type="number" min="1" max="99" placeholder="4">
+            </label>
+            <label class="field">
+              <span>Repeticiones</span>
+              <input id="exercise-reps" type="text" placeholder="8–10">
+            </label>
+            <label class="field">
+              <span>Descanso</span>
+              <input id="exercise-rest" type="text" placeholder="90 s">
+            </label>
+          </div>
+          <button class="button button-outline" id="add-exercise" type="button">
+            <span class="button-icon" aria-hidden="true">+</span>
+            Agregar ejercicio
+          </button>
+          <p class="form-message" id="form-message" role="alert"></p>
+          <div class="pending-exercises" id="pending-exercises"></div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="button button-ghost" id="cancel-modal" type="button">Cancelar</button>
+          <button class="button button-primary" type="submit">Guardar rutina <span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
