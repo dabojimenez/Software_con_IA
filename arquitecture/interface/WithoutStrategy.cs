@@ -16,3 +16,25 @@ class Sale
         sMSNotification("Tu venta fue creada exitosamente");
     }
 }
+
+class Report
+{
+    // SMSNotification sMSNotification = new SMSNotification();
+    EmailNotification emailNotification = new EmailNotification();
+    
+    public void Generate()
+    {
+        System.Console.WriteLine("Reporte generado");
+
+        // sMSNotification.SendSMS("Tu reporte ha sido generado exitosamente");
+        emailNotification.SendEmail("Tu reporte ha sido generado exitosamente");
+    }
+}
+
+class EmailNotification
+{
+    public void SendEmail(string message)
+    {
+        System.Console.WriteLine("Sending sms: " + message);
+    }
+}
