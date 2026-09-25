@@ -2,6 +2,22 @@ var notification = new EmailNotification();
 var sale = new Sale(notification);
 sale.Create();
 
+var notifications = new List<INotification>
+{
+    new SMSNotification(),
+    new EmailNotification(),
+    new PushNotification(),
+}();
+
+SendMessages(notifications, "Mensajes enviado a sistintos sitios");
+
+void SendMessages(List<INotification> notifications, string message)
+{
+    foreach (var notification in notifications)
+    {
+        notification.SendNotification(message);
+    }
+}
 
 interface INotification
 {
