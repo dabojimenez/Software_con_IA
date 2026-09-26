@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="..\interface\ISave.cs" Link="ISave.cs" />
+    <Compile Include="..\interface\JsonSave.cs" Link="JsonSave.cs" />
+  </ItemGroup>
+
 </Project>
