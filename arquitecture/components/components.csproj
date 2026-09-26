@@ -13,4 +13,8 @@
     <Compile Include="..\interface\XMLSave.cs" Link="XMLSave.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12" />
+  </ItemGroup>
+
 </Project>
