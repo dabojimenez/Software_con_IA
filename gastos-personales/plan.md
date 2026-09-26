@@ -22,6 +22,7 @@ Cada gasto representa un movimiento individual y contiene:
 
 - `id`: identificador único, generado al registrar el gasto.
 - `concepto`: descripción del gasto.
+- `nota`: descripción adicional opcional.
 - `cantidad`: importe numérico positivo.
 - `fecha`: día calendario en el que ocurrió el gasto.
 - `moneda`: código o tipo de moneda del importe.
@@ -32,7 +33,7 @@ El total no se almacena como un gasto independiente. Se obtiene sumando las cant
 
 ## Reglas de negocio
 
-1. Concepto, cantidad, fecha y moneda son obligatorios.
+1. Concepto, cantidad, fecha y moneda son obligatorios; la nota es opcional.
 2. El concepto no puede estar vacío después de quitar espacios al inicio y al final.
 3. La cantidad debe ser numérica y estrictamente mayor que cero. No se admiten reembolsos ni ajustes negativos.
 4. La fecha debe ser válida y tratarse como fecha calendario, sin hora.
@@ -46,7 +47,7 @@ El total no se almacena como un gasto independiente. Se obtiene sumando las cant
 
 ### Registrar gasto
 
-**Entrada:** concepto, cantidad, fecha y moneda.
+**Entrada:** concepto, cantidad, fecha, moneda y nota opcional.
 
 **Flujo:** validar los campos, asignar un identificador y guardar el gasto.
 
@@ -56,7 +57,7 @@ El total no se almacena como un gasto independiente. Se obtiene sumando las cant
 
 **Entrada:** ninguna en la versión inicial.
 
-**Flujo:** recuperar los gastos registrados y mostrarlos con concepto, cantidad, fecha y moneda.
+**Flujo:** recuperar los gastos registrados y mostrarlos con concepto, cantidad, fecha, moneda y nota cuando exista.
 
 **Resultado:** lista de gastos o estado vacío si no hay registros.
 
