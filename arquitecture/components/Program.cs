@@ -12,7 +12,7 @@
 	"Saison"
 };
 
-Save(new JsonSave("cervezas.json"));
+Save(new XMLSave("cervezas.xml"));
 
 void Save(ISave save)
 {

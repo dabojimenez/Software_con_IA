@@ -10,6 +10,7 @@
   <ItemGroup>
     <Compile Include="..\interface\ISave.cs" Link="ISave.cs" />
     <Compile Include="..\interface\JsonSave.cs" Link="JsonSave.cs" />
+    <Compile Include="..\interface\XMLSave.cs" Link="XMLSave.cs" />
   </ItemGroup>
 
 </Project>
