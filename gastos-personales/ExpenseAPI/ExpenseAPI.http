@@ -1,0 +1,22 @@
+@ExpenseAPI_HostAddress = http://localhost:5046
+
+### Register expense
+# @name registerExpense
+POST {{ExpenseAPI_HostAddress}}/expenses
+Content-Type: application/json
+
+{
+  "concept": "Groceries",
+  "amount": 45.90,
+  "date": "2026-09-26",
+  "currency": "EUR",
+  "note": "Weekly shopping"
+}
+
+### Get expenses
+GET {{ExpenseAPI_HostAddress}}/expenses
+Accept: application/json
+
+### Delete registered expense
+DELETE {{ExpenseAPI_HostAddress}}/expenses/a741ca79-c1f7-4288-8096-0b9e19e79933
+Accept: application/json
