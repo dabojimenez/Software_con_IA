@@ -10,6 +10,23 @@
         "**/flutter/ephemeral": true,
         "**/Flutter/ephemeral": true,
         "**/.symlinks": true,
-        "**/.plugin_symlinks": true
+        "**/.plugin_symlinks": true,
+        "[!g]*/**": true,
+        "g[!a]*/**": true,
+        "ga[!s]*/**": true,
+        "gas[!t]*/**": true,
+        "gast[!o]*/**": true,
+        "gasto[!s]*/**": true,
+        "gastos[!-]*/**": true,
+        "gastos-[!p]*/**": true,
+        "gastos-p[!e]*/**": true,
+        "gastos-pe[!r]*/**": true,
+        "gastos-per[!s]*/**": true,
+        "gastos-pers[!o]*/**": true,
+        "gastos-perso[!n]*/**": true,
+        "gastos-person[!a]*/**": true,
+        "gastos-persona[!l]*/**": true,
+        "gastos-personal[!e]*/**": true,
+        "gastos-personale[!s]*/**": true
     }
 }
