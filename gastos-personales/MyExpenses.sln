@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyExpenses.Domain", "MyExpe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationLayer", "ApplicationLayer\ApplicationLayer.csproj", "{13D987E8-8AC1-4446-98EC-0E77BEEFE006}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileRepository", "FileRepository\FileRepository.csproj", "{EC643EE7-3C1B-4700-A530-A827AC4D0C67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{13D987E8-8AC1-4446-98EC-0E77BEEFE006}.Release|x64.Build.0 = Release|Any CPU
 		{13D987E8-8AC1-4446-98EC-0E77BEEFE006}.Release|x86.ActiveCfg = Release|Any CPU
 		{13D987E8-8AC1-4446-98EC-0E77BEEFE006}.Release|x86.Build.0 = Release|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Debug|x64.Build.0 = Debug|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Debug|x86.Build.0 = Debug|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Release|x64.ActiveCfg = Release|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Release|x64.Build.0 = Release|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Release|x86.ActiveCfg = Release|Any CPU
+		{EC643EE7-3C1B-4700-A530-A827AC4D0C67}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
