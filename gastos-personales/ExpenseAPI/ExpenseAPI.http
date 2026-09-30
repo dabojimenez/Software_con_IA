@@ -10,6 +10,7 @@ Content-Type: application/json
   "amount": 45.90,
   "date": "2026-09-26",
   "currency": "EUR",
+  "idCategory": "2f3c1b8a-6d4e-4a91-9b27-5c8d0e7f1234",
   "note": "Weekly shopping"
 }
 

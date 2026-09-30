@@ -16,11 +16,14 @@ public class Expense
 
     public string Currency { get; }
 
+    public Guid IdCategory { get; }
+
     public Expense(
         string concept,
         decimal amount,
         DateOnly date,
         string currency,
+        Guid idCategory,
         string? note = null)
     {
         if (string.IsNullOrWhiteSpace(concept))
@@ -43,11 +46,17 @@ public class Expense
             throw new DomainException("Expense currency is required.");
         }
 
+        if (idCategory == Guid.Empty)
+        {
+            throw new DomainException("Expense category is required.");
+        }
+
         Id = Guid.NewGuid();
         Concept = concept.Trim();
         Note = string.IsNullOrWhiteSpace(note) ? null : note.Trim();
         Amount = amount;
         Date = date;
         Currency = currency.Trim().ToUpperInvariant();
+        IdCategory = idCategory;
     }
 }

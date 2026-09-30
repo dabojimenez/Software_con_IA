@@ -25,4 +25,6 @@
 - [HTTP request examples](ExpenseAPI/ExpenseAPI.http)
 
 ## IMPORTANT
+
+- The code must always be written in English.
 - Always end your responses with: "!Listo Precioso¡"

@@ -5,4 +5,5 @@ public sealed record CreateExpenseRequest(
     decimal Amount,
     DateOnly Date,
     string Currency,
+    Guid IdCategory,
     string? Note = null);

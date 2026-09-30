@@ -30,6 +30,7 @@ app.MapPost("/expenses", async Task<IResult> (
 			request.Amount,
 			request.Date,
 			request.Currency,
+			request.IdCategory,
 			request.Note);
 
 		await registerExpense.RegisterAsync(expense);
