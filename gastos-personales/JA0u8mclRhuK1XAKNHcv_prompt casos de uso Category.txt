@@ -1,0 +1,1 @@
+Crea los casos de uso de Category, implementando los puertos primarios correspondientes. Utiliza IRepository para el acceso a recurso externo.
