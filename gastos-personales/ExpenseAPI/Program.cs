@@ -2,8 +2,10 @@ using ExpenseAPI.Contracts;
 using MyExpenses.Domain.Entities;
 using MyExpenses.Domain.Exceptions;
 
+using ApplicationLayer.Ports.PrimaryPort.Categories;
 using ApplicationLayer.Ports.PrimaryPort.Expenses;
 using ApplicationLayer.Ports.SecundaryPort;
+using ApplicationLayer.UseCases.Categories;
 using ApplicationLayer.UseCases.Expenses;
 using FileRepository;
 
@@ -15,6 +17,9 @@ builder.Services.AddSingleton<IRepository<Category>, CategoryRepository>();
 builder.Services.AddScoped<IRegisterExpense, RegisterExpenseUseCase>();
 builder.Services.AddScoped<IGetExpenses, GetExpensesUseCase>();
 builder.Services.AddScoped<IDeleteExpense, DeleteExpenseUseCase>();
+builder.Services.AddScoped<ICreateCategory, CreateCategoryUseCase>();
+builder.Services.AddScoped<IDeleteCategory, DeleteCategoryUseCase>();
+builder.Services.AddScoped<IGetCategories, GetCategoriesUseCase>();
 
 var app = builder.Build();
 
