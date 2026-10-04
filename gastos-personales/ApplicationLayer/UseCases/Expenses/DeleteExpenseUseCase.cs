@@ -6,9 +6,9 @@ namespace ApplicationLayer.UseCases.Expenses;
 
 public class DeleteExpenseUseCase : IDeleteExpense
 {
-    private readonly IRepository _repository;
+    private readonly IRepository<Expense> _repository;
 
-    public DeleteExpenseUseCase(IRepository repository)
+    public DeleteExpenseUseCase(IRepository<Expense> repository)
     {
         _repository = repository;
     }

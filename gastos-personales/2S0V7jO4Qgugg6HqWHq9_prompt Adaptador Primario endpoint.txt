@@ -1,0 +1,3 @@
+Crea los endpoints para cada caso de uso en el proyecto ExpenseAPI, obtén por medio de inyección cada caso de uso.
+
+Crea un archivo .http con solicitudes de ejemplo para probar los endpoints, agrega ### entre cada solicitud, para que sea tomado como formato correcto en las solicitudes .http

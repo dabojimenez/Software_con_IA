@@ -1,0 +1,12 @@
+Implementa los puertos primarios de gastos en 3 casos de uso en el componente ApplicationLayer
+
+Utiliza el puerto IRepository, utilízalo como un campo privado de la clase que se recibirá en inyección de dependencias
+
+Caso de uso:
+- Agregar gasto
+- Obtener gastos
+- Eliminar gasto
+
+Poner las clases de casos de uso en la Carpeta UsesCases/Expenses dentro del proyecto de ApplicationLayer.
+
+

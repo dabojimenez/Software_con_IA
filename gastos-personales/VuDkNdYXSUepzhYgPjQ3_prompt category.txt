@@ -1,0 +1,1 @@
+Crea una nueva entidad para Categoría, agrega un id tipo Guid y un nombre, valida que el nombre no supere los 100 caracteres, por ahora solo trabaja en dominio

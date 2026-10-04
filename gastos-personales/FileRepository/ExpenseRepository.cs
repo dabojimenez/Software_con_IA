@@ -3,7 +3,7 @@ using MyExpenses.Domain.Entities;
 
 namespace FileRepository;
 
-public class ExpenseRepository : IRepository
+public class ExpenseRepository : IRepository<Expense>
 {
     private readonly List<Expense> _expenses = [];
 

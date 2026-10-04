@@ -1,0 +1,7 @@
+Vamos a implementar el puerto secundario IRepository.
+
+Crea una biblioteca de clases llamada FileRepository, anéxala a la solución.
+
+Crea una clase que implemente IRepository y llámala ExpenseRepository.
+
+La clase va a realizar la persistencia en memoria en una Lista de Entity Expense.

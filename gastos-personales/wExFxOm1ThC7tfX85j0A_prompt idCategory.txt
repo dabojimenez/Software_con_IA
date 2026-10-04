@@ -1,0 +1,3 @@
+Agregaremos un nuevo campo a gasto, el campo sera un idCategory del tipo GUID, agrégalo a la entidad y valida que sea obligatorio. Analiza en todas las capas donde afecte este nuevo campo y modifica para que nada falle al agregarlo. Contempla también las pruebas en el archivo .http en el proyecto API con un GUID valido para idCategory en el POST.
+
+

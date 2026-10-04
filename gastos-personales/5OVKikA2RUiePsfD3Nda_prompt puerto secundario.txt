@@ -1,0 +1,18 @@
+Crea un proyecto biblioteca de clases llamado ApplicationLayer en esta misma solución, esta biblioteca actuara como componente de la capa Aplicación de la Arquitectura hexagonal.
+
+Estructura de carpetas:
+- Ports:
+	- PrimaryPort
+	- SecundaryPort
+- UseCases:
+	
+
+Crea el puerto secundario llamado IRepository, que deberá estar en la carpeta SecundaryPort, los puertos son Interfaces de C#.
+
+Métodos de IRepository:
+- Add: recibe una entidad de gastos y no retorna nada
+- Get: retorna un listado de entidades gasto.
+- Delete: recibe un entity y no retorna nada
+
+Restricciones:
+En los métodos define que se utilizara asincronía 

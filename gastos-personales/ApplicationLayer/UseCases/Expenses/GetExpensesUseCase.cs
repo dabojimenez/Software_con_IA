@@ -6,9 +6,9 @@ namespace ApplicationLayer.UseCases.Expenses;
 
 public class GetExpensesUseCase : IGetExpenses
 {
-    private readonly IRepository _repository;
+    private readonly IRepository<Expense> _repository;
 
-    public GetExpensesUseCase(IRepository repository)
+    public GetExpensesUseCase(IRepository<Expense> repository)
     {
         _repository = repository;
     }

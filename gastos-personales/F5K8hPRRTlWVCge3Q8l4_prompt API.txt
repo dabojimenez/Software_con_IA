@@ -1,0 +1,7 @@
+Vamos a crear el proyecto principal, un proyecto que servirá como API Backend.
+
+Crea un proyecto Minimal API y llámalo ExpenseAPI
+
+Agrega en sus referencias la biblioteca ApplicationLayer, FileRepository y Domain.
+
+No crees los Enpoints para los casos de uso aún, solo crea un Endpoint en raíz que indique "API Corriendo"

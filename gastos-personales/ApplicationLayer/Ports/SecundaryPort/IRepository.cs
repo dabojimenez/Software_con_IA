@@ -1,12 +1,10 @@
-using MyExpenses.Domain.Entities;
-
 namespace ApplicationLayer.Ports.SecundaryPort;
 
-public interface IRepository
+public interface IRepository<T>
 {
-    Task AddAsync(Expense expense);
+    Task AddAsync(T entity);
 
-    Task<IReadOnlyList<Expense>> GetAsync();
+    Task<IReadOnlyList<T>> GetAsync();
 
-    Task DeleteAsync(Expense expense);
+    Task DeleteAsync(T entity);
 }

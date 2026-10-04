@@ -10,7 +10,7 @@ using FileRepository;
 var builder = WebApplication.CreateBuilder(args);
 
 // Registro de las inyecciones de dependencias
-builder.Services.AddSingleton<IRepository, ExpenseRepository>();
+builder.Services.AddSingleton<IRepository<Expense>, ExpenseRepository>();
 builder.Services.AddScoped<IRegisterExpense, RegisterExpenseUseCase>();
 builder.Services.AddScoped<IGetExpenses, GetExpensesUseCase>();
 builder.Services.AddScoped<IDeleteExpense, DeleteExpenseUseCase>();

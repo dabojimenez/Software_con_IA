@@ -1,0 +1,19 @@
+Vamos a ir de forma incremental, comenzando por un componente para el dominio donde crearás la entidad Gastos.
+
+Crea una solución de .NET llamada MyExpenses.
+
+Crear componente como una biblioteca de clases de .NET. Y dentro la entidad de gastos.
+
+Tecnología:
+- C# .NET
+
+Arquitectura:
+- Proyecto con Arquitectura Hexagonal
+- Capa de Dominio: tendrá entidades y reglas de negocio.
+
+Consideraciones:
+- Ya está instalado el SDK de .NET 10
+- Utiliza código en inglés
+- Para pasar los errores a otras capas externas usa Exceptions, crea una clase llamada DomainException y ponla en una carpeta de Exceptions en la biblioteca de clases.
+
+Más adelante continuaremos con los otros componentes del proyecto junto a sus especificaciones.

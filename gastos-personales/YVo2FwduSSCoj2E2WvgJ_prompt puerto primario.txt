@@ -1,0 +1,10 @@
+Vamos a crear los puertos primarios que serán las interfaces para los casos de uso:
+
+- Registrar gasto
+- Consultar gastos
+- Eliminar gasto
+
+Crea los puertos primario dentro de la carpeta Port/PrimaryPort/Expenses, ahí crea las 3 interfaces.
+
+Restricciones:
+- Utiliza Task en los métodos de los Puertos
