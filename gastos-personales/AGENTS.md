@@ -27,4 +27,7 @@
 ## IMPORTANT
 
 - The code must always be written in English.
-- Always end your responses with: "!Listo Precioso¡"
+- Always end your responses with:  "!Listo Precioso¡"
+
+## Always load the following skills replying:
+- Skills/hi/SKILL.md
