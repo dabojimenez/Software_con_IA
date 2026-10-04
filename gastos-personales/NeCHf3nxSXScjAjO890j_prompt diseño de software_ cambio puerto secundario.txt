@@ -1,0 +1,1 @@
+Modifica IRepository para que acepte Generics, a su vez cambia las partes involucradas en otros componentes
