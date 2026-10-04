@@ -1,0 +1,1 @@
+Crea los endpoint para los casos de uso de Categorías, también crea las solicitudes de prueba en el archivo .http

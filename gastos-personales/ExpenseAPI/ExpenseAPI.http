@@ -21,3 +21,24 @@ Accept: application/json
 ### Delete registered expense
 DELETE {{ExpenseAPI_HostAddress}}/expenses/a741ca79-c1f7-4288-8096-0b9e19e79933
 Accept: application/json
+
+### Create category
+# @name createCategory
+POST {{ExpenseAPI_HostAddress}}/categories
+Content-Type: application/json
+
+{
+  "name": "Groceries"
+}
+
+### Get categories
+GET {{ExpenseAPI_HostAddress}}/categories
+Accept: application/json
+
+### Delete created category
+DELETE {{ExpenseAPI_HostAddress}}/categories/{{createCategory.response.body.$.id}}
+Accept: application/json
+
+### Delete a category that does not exist
+DELETE {{ExpenseAPI_HostAddress}}/categories/00000000-0000-0000-0000-000000000000
+Accept: application/json

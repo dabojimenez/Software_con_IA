@@ -7,6 +7,7 @@ using ApplicationLayer.Ports.PrimaryPort.Expenses;
 using ApplicationLayer.Ports.SecundaryPort;
 using ApplicationLayer.UseCases.Categories;
 using ApplicationLayer.UseCases.Expenses;
+using ExpenseAPI.Endpoints;
 using FileRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +23,8 @@ builder.Services.AddScoped<IDeleteCategory, DeleteCategoryUseCase>();
 builder.Services.AddScoped<IGetCategories, GetCategoriesUseCase>();
 
 var app = builder.Build();
+
+app.MapCategoryEndpoints();
 
 app.MapGet("/", () => "API Corriendo");
 
