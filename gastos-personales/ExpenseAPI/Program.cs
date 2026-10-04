@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Registro de las inyecciones de dependencias
 builder.Services.AddSingleton<IRepository<Expense>, ExpenseRepository>();
+builder.Services.AddSingleton<IRepository<Category>, CategoryRepository>();
 builder.Services.AddScoped<IRegisterExpense, RegisterExpenseUseCase>();
 builder.Services.AddScoped<IGetExpenses, GetExpensesUseCase>();
 builder.Services.AddScoped<IDeleteExpense, DeleteExpenseUseCase>();
